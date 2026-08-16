@@ -1,13 +1,4 @@
-/* ============================================================
-   MATH FLUENCY INTERVENTION — design tokens
-   Concept: multiplication drills on graph paper, flashcard cards.
-   Paper/bg:  #eef3f7 (graph-paper blue-grey) + faint grid lines
-   Ink:       #1c2b33 (deep navy-charcoal)
-   Assessment accent (pre/post-test): teal   #0e7a88
-   Practice accent (needs work):      amber  #d9821f
-   Game accent (challenge):           violet #7454a6
-   Headings/UI: 'Sora'      Numbers/data: 'IBM Plex Mono' (tabular)
-   ============================================================ */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap');
 
