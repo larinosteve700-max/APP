@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Math Fluency Intervention</title>
+
+    <link rel="stylesheet" href="appC.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div>
+        <p class="eyebrow">OFFLINE LEARNING APP</p>
+        <h1>Math Fluency</h1>
+    </div>
+
+    <div id="studentPill" class="student-pill">
+        No Student
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+    <!-- ================= HOME ================= -->
+
+    <section id="homeScreen" class="screen active">
+
+        <div class="hero card">
+
+            <div>
+
+                <span class="badge">
+                    Multiplication Intervention
+                </span>
+
+                <h2>
+                    Build multiplication fluency
+                    one step at a time.
+                </h2>
+
+                <p>
+                    Practice multiplication facts, improve
+                    weak areas, and monitor learning progress
+                    completely offline.
+                </p>
+
+            </div>
+
+            <div class="hero-icon">
+                ×
+            </div>
+
+        </div>
+
+
+        <!-- STUDENT -->
+
+        <div class="card">
+
+            <h3>Student Profile</h3>
+
+            <div class="profile-row">
+
+                <input
+                    id="studentNameInput"
+                    type="text"
+                    placeholder="Enter student's name"
+                    maxlength="50"
+                >
+
+                <button
+                    id="saveStudentBtn"
+                    class="primary"
+                >
+                    Start
+                </button>
+
+            </div>
+
+            <p class="muted">
+                Student information is stored locally
+                on this device.
+            </p>
+
+        </div>
+
+
+        <!-- DASHBOARD -->
+
+        <div id="dashboard" class="hidden">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        STUDENT DASHBOARD
+                    </p>
+
+                    <h2 id="welcomeText">
+                        Welcome!
+                    </h2>
+
+                </div>
+
+                <button
+                    id="changeStudentBtn"
+                    class="secondary small"
+                >
+                    Change Student
+                </button>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+
+            <div class="stats-grid">
+
+                <div class="stat card">
+
+                    <span>
+                        Pre-Test
+                    </span>
+
+                    <strong id="preScore">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="stat card">
+
+                    <span>
+                        Post-Test
+                    </span>
+
+                    <strong id="postScore">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="stat card">
+
+                    <span>
+                        Practice
+                    </span>
+
+                    <strong id="practiceCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat card">
+
+                    <span>
+                        Best Streak
+                    </span>
+
+                    <strong id="bestStreak">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="action-grid">
+
+                <button
+                    id="assessmentBtn"
+                    class="action-card"
+                >
+
+                    <span class="action-icon">
+                        📝
+                    </span>
+
+                    <strong>
+                        Pre-Test
+                    </strong>
+
+                    <small>
+                        Measure the student's
+                        starting fluency.
+                    </small>
+
+                </button>
+
+
+                <button
+                    id="practiceBtn"
+                    class="action-card"
+                >
+
+                    <span class="action-icon">
+                        ✏️
+                    </span>
+
+                    <strong>
+                        Intervention Practice
+                    </strong>
+
+                    <small>
+                        Practice multiplication
+                        facts that need improvement.
+                    </small>
+
+                </button>
+
+
+                <button
+                    id="postTestBtn"
+                    class="action-card"
+                >
+
+                    <span class="action-icon">
+                        📋
+                    </span>
+
+                    <strong>
+                        Post-Test
+                    </strong>
+
+                    <small>
+                        Measure improvement
+                        after intervention.
+                    </small>
+
+                </button>
+
+
+                <button
+                    id="gameBtn"
+                    class="action-card"
+                >
+
+                    <span class="action-icon">
+                        🎮
+                    </span>
+
+                    <strong>
+                        Quick Game
+                    </strong>
+
+                    <small>
+                        Practice multiplication
+                        in a fun way.
+                    </small>
+
+                </button>
+
+
+                <button
+                    id="progressBtn"
+                    class="action-card"
+                >
+
+                    <span class="action-icon">
+                        📈
+                    </span>
+
+                    <strong>
+                        Progress Report
+                    </strong>
+
+                    <small>
+                        View learning progress
+                        and results.
+                    </small>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= QUIZ ================= -->
+
+    <section id="assessmentScreen" class="screen">
+
+        <div class="section-heading">
+
+            <div>
+
+                <p class="eyebrow">
+                    ASSESSMENT
+                </p>
+
+                <h2 id="assessmentTitle">
+                    Pre-Test
+                </h2>
+
+                <p class="muted">
+                    Answer 20 multiplication questions.
+                </p>
+
+            </div>
+
+            <button class="secondary backHome">
+                ← Home
+            </button>
+
+        </div>
+
+
+        <div class="card quiz-card">
+
+            <div class="quiz-top">
+
+                <span id="quizProgress">
+                    Question 1 of 20
+                </span>
+
+                <span id="quizScoreLive">
+                    Score: 0
+                </span>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div id="quizProgressBar"></div>
+
+            </div>
+
+
+            <div class="question-area">
+
+                <p class="question-label">
+                    What is
+                </p>
+
+                <div
+                    id="questionText"
+                    class="question"
+                >
+                    3 × 4 = ?
+                </div>
+
+                <div
+                    id="answerChoices"
+                    class="choices"
+                ></div>
+
+            </div>
+
+
+            <div
+                id="feedback"
+                class="feedback hidden"
+            ></div>
+
+
+            <button
+                id="nextQuestionBtn"
+                class="primary full hidden"
+            >
+                Next Question
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRACTICE ================= -->
+
+    <section id="practiceScreen" class="screen">
+
+        <div class="section-heading">
+
+            <div>
+
+                <p class="eyebrow">
+                    INTERVENTION
+                </p>
+
+                <h2>
+                    Personalized Practice
+                </h2>
+
+                <p class="muted">
+                    Practice multiplication facts
+                    that need more attention.
+                </p>
+
+            </div>
+
+            <button class="secondary backHome">
+                ← Home
+            </button>
+
+        </div>
+
+
+        <div class="card strategy-card">
+
+            <span class="badge">
+                Strategy Tip
+            </span>
+
+            <h3 id="strategyTitle">
+                Think in equal groups.
+            </h3>
+
+            <p id="strategyText">
+                Multiplication can be understood
+                as repeated addition.
+            </p>
+
+        </div>
+
+
+        <div class="card quiz-card">
+
+            <div class="quiz-top">
+
+                <span id="practiceProgress">
+                    Question 1 of 10
+                </span>
+
+                <span id="practiceStreak">
+                    Streak: 0
+                </span>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div id="practiceProgressBar"></div>
+
+            </div>
+
+
+            <div class="question-area">
+
+                <p class="question-label">
+                    Solve this
+                </p>
+
+                <div
+                    id="practiceQuestion"
+                    class="question"
+                >
+                    6 × 7 = ?
+                </div>
+
+                <div
+                    id="practiceChoices"
+                    class="choices"
+                ></div>
+
+            </div>
+
+
+            <div
+                id="practiceFeedback"
+                class="feedback hidden"
+            ></div>
+
+
+            <button
+                id="nextPracticeBtn"
+                class="primary full hidden"
+            >
+                Next Question
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= GAME ================= -->
+
+    <section id="gameScreen" class="screen">
+
+        <div class="section-heading">
+
+            <div>
+
+                <p class="eyebrow">
+                    QUICK GAME
+                </p>
+
+                <h2>
+                    Multiplication Challenge
+                </h2>
+
+            </div>
+
+            <button class="secondary backHome">
+                ← Home
+            </button>
+
+        </div>
+
+
+        <div class="card quiz-card">
+
+            <div class="quiz-top">
+
+                <span id="gameProgress">
+                    Question 1 of 10
+                </span>
+
+                <span id="gameScoreLive">
+                    Score: 0
+                </span>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div id="gameProgressBar"></div>
+
+            </div>
+
+
+            <div class="question-area">
+
+                <p class="question-label">
+                    Challenge
+                </p>
+
+                <div
+                    id="gameQuestion"
+                    class="question"
+                >
+                    8 × 7 = ?
+                </div>
+
+                <div
+                    id="gameChoices"
+                    class="choices"
+                ></div>
+
+            </div>
+
+
+            <div
+                id="gameFeedback"
+                class="feedback hidden"
+            ></div>
+
+
+            <button
+                id="nextGameBtn"
+                class="primary full hidden"
+            >
+                Next Question
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROGRESS ================= -->
+
+    <section id="progressScreen" class="screen">
+
+        <div class="section-heading">
+
+            <div>
+
+                <p class="eyebrow">
+                    PROGRESS REPORT
+                </p>
+
+                <h2>
+                    Student Progress
+                </h2>
+
+            </div>
+
+            <button class="secondary backHome">
+                ← Home
+            </button>
+
+        </div>
+
+
+        <div class="card result-highlight">
+
+            <span>
+                Overall Improvement
+            </span>
+
+            <strong id="improvementText">
+                Complete the pre-test and
+                post-test to see improvement.
+            </strong>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Assessment Results
+            </h3>
+
+            <div class="result-grid">
+
+                <div>
+
+                    <span>
+                        Pre-Test
+                    </span>
+
+                    <strong id="progressPre">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Post-Test
+                    </span>
+
+                    <strong id="progressPost">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Improvement
+                    </span>
+
+                    <strong id="progressDelta">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Multiplication Fact Accuracy
+            </h3>
+
+            <div
+                id="progressSkills"
+                class="skill-list"
+            ></div>
+
+        </div>
+
+
+        <!-- PDF -->
+
+        <div class="card">
+
+            <h3>
+                Student Report
+            </h3>
+
+            <p class="muted">
+                Generate a human-readable PDF report
+                containing the student's actual results.
+            </p>
+
+            <button
+                id="exportPdfBtn"
+                class="primary"
+            >
+                📄 Export Student Report as PDF
+            </button>
+
+        </div>
+
+
+        <!-- CSV -->
+
+        <div class="card">
+
+            <h3>
+                Research Data
+            </h3>
+
+            <p class="muted">
+                Export the raw results for use in
+                Excel or other research software.
+            </p>
+
+            <button
+                id="exportCsvBtn"
+                class="secondary"
+            >
+                📊 Export Research Data
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Student Data
+            </h3>
+
+            <button
+                id="resetBtn"
+                class="danger"
+            >
+                Reset Student Data
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RESULT ================= -->
+
+    <section id="resultScreen" class="screen">
+
+        <div class="card final-result">
+
+            <div
+                id="resultIcon"
+                class="result-icon"
+            >
+                🎉
+            </div>
+
+            <p
+                id="resultEyebrow"
+                class="eyebrow"
+            >
+                SESSION COMPLETE
+            </p>
+
+            <h2 id="resultTitle">
+                Great work!
+            </h2>
+
+            <p id="resultMessage">
+                You completed the session.
+            </p>
+
+            <div
+                id="resultScore"
+                class="big-score"
+            >
+                0 / 10
+            </div>
+
+            <div
+                id="resultDetails"
+                class="result-details"
+            ></div>
+
+            <button
+                id="resultHomeBtn"
+                class="primary"
+            >
+                Back to Dashboard
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!--
+IMPORTANT:
+
+Place jsPDF locally inside:
+
+math-fluency-app/
+└── libs/
+    └── jspdf.umd.min.js
+
+This keeps PDF generation offline.
+-->
+
+    <script src="libs/jspdf.umd.min.js"></script>
+    <script src="appJS.js"></script>
+</body>
+</html>
